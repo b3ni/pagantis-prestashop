@@ -4,7 +4,7 @@
 ## Instrucciones de Instalación
 
 1. Crea tu cuenta en Pagantis.com si aún no la tienes [desde aquí](https://bo.pagantis.com/users/sign_up)
-2. Descarga el módulo de [aquí](XXX)
+2. Descarga el módulo de [aquí](https://github.com/pagantis/pagantis-prestashop/releases)
 3. Instala el módulo en tu prestashop
 4. Configuralo con la información de tu cuenta que encontrarás en [el panel de gestión de Pagantis](https://bo.pagantis.com/api). Ten en cuenta que para hacer cobros reales deberás activar tu cuenta de Pagantis.
 5. MUY IMPORTANTE: Añade en [la sección de notificaciones HTTP](https://bo.pagantis.com/notifications) de Pagantis la URL de notificación de tu tienda. Puedes ver más abajo instrucciones para saber la URL de tu comercio.
