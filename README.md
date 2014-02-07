@@ -28,6 +28,10 @@ Si tienes alguna duda o pregunta no tienes más que escribirnos un email a [sopo
 
 ### Release notes
 
+#### 1.0.1
+
+- Eliminado warning en las notificaciones de ventas al comercio
+
 #### 1.0.0
 
 - Versión inicial

@@ -2,7 +2,7 @@
         <module>
             <name>tpvpagantis</name>
             <displayName><![CDATA[]]></displayName>
-            <version><![CDATA[1.0.0]]></version>
+            <version><![CDATA[1.0.1]]></version>
             <description><![CDATA[Aceptar cobros con una cuenta de pagantis.com]]></description>
             <author><![CDATA[Pagantis.com]]></author>
             <tab><![CDATA[payments_gateways]]></tab>

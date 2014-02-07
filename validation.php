@@ -17,14 +17,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     $amount_paid = round(floatval($amount/100), 2);
     
+    $cart = new Cart($order_id);
+    $customer = new Customer((int)$cart->id_customer);
+        
     $tpvpagantis->validateOrder((int)$order_id, 
                                 (int)Configuration::get('PS_OS_PAYMENT'), //id_order_state
                                 $amount_paid, 
                                 $tpvpagantis->displayName, //payment_method
-                                $tpvpagantis->l('Payment received. Auth code: ').$auth.'<br>' //message
-                                );
+                                $tpvpagantis->l('Payment received. Auth code: ').$auth.'<br>', //message
+                                array(), null, false, $customer->secure_key);
 
-    echo '$*$OKY$*$ -- '.$data["event"].'--'.$order_id.'--'.$amount.'--'.$currency.'--'.$auth.'--'.$amount_paid; 
+    echo '$*$OKY$*$';
   }
 
 } else {
