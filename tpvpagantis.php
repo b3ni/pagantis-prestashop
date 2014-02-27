@@ -83,7 +83,7 @@ class TpvPagantis extends PaymentModule
     || !Configuration::updateValue('TPV_PAGANTIS_ACCOUNT_ID_TEST', '')
     || !Configuration::updateValue('TPV_PAGANTIS_KEY_LIVE', '') 
     || !Configuration::updateValue('TPV_PAGANTIS_KEY_TEST', '') 
-    || !Configuration::updateValue('TPV_PAGANTIS_URL', 'https://psp.pagantis.com/1/sale')
+    || !Configuration::updateValue('TPV_PAGANTIS_URL', 'https://psp.pagantis.com/2/sale')
     || !Configuration::updateValue('TPV_PAGANTIS_CURRENCY', 'EUR') 
     || !Configuration::updateValue('TPV_PAGANTIS_ERROR_ACTION', '0')
     || !Configuration::updateValue('TPV_PAGANTIS_ENV', '0'))
@@ -235,8 +235,7 @@ class TpvPagantis extends PaymentModule
       $this->key_to_use= Tools::getValue('encryption_key_test', $this->encryption_key_test); 
     }
     
-    $ip = $_SERVER['REMOTE_ADDR'];
-    return sha1($this->key_to_use.$ip.$signature_string);
+    return sha1($this->key_to_use.$signature_string);
   }
   
   public function execPayment($cart)
