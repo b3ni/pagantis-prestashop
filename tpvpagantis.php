@@ -268,8 +268,12 @@ class TpvPagantis extends PaymentModule
     
     $currency        = Tools::getValue('currency', $this->currency);
     $order_id        = $cart->id;
-    $url_OK          = 'http://'.$_SERVER['HTTP_HOST'].__PS_BASE_URI__.'order-confirmation.php?key='.$customer->secure_key.'&id_cart='.$cart->id.'&id_module='.(int)($this->id).'&id_order='.(int)($cart->id);
-    $url_NOK         = 'http://'.$_SERVER['HTTP_HOST'].__PS_BASE_URI__.'modules/tpvpagantis/payment_ko.php';    
+    
+    // URL fix for v1.6
+    // $url_OK  = 'http://'.$_SERVER['HTTP_HOST'].__PS_BASE_URI__.'order-confirmation.php?key='.$customer->secure_key.'&id_cart='.$cart->id.'&id_module='.(int)($this->id).'&id_order='.(int)($cart->id);
+    $current_server = Tools::getShopDomainSsl(true, true);
+    $url_OK  = $current_server.__PS_BASE_URI__.'index.php?controller=order-confirmation&key='.$customer->secure_key.'&id_cart='.$cart->id.'&id_module='.(int)($this->id).'&id_order='.(int)($cart->id);
+    $url_NOK = $current_server.__PS_BASE_URI__.'modules/tpvpagantis/payment_ko.php';    
 
     $cypher_method = "SHA1";
     
