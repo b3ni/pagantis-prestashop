@@ -35,7 +35,7 @@
   </p>
 
 <p class="cart_navigation">
-  <a href="{$base_dir_ssl}order.php?step=3" class="button_large">{l s='Change payment method' mod='tpvpagantis'}</a>
+  <a href="{$base_dir_ssl}index.php?controller=order&step=3" class="button_large">{l s='Change payment method' mod='tpvpagantis'}</a>
   <input type="hidden" name="account_id"  value="{$account_id}" /> 
   <input type="hidden" name="currency"    value="{$currency}" />
   <input type="hidden" name="ok_url"      value="{$ok_url}" />
