@@ -1,4 +1,4 @@
-# Módulo de prestashop 1.5 para  pagantis.com
+# Módulo de prestashop 1.5 y 1.6 para  pagantis.com
 
 
 ## Instrucciones de Instalación
@@ -21,12 +21,29 @@ Ejemplos:
 - Si tu tienda está en la carpeta "tienda" del dominio http://www.midominio.com, la URL será: http://www.midominio.com/tienda/modules/tpvpagantis/validation.php
 
 
+## Modo real y modo de pruebas
+
+Tanto el módulo como Pagantis tienen funcionamiento en real y en modo de pruebas independientes. Debes introducir las credenciales y las URLs de notificación correspondientes al entorno que desees usar.
+
+Esto incluye las URLs de notificación. Confirma que tienes configuradas las URLs de notificación tanto en pruebas como en real. 
+
+
 ### Soporte
 
 Si tienes alguna duda o pregunta no tienes más que escribirnos un email a [soporte.tpv@pagantis.com] o a través de Twitter a [@PagantisDev](https://twitter.com/PagantisDev)
 
 
 ### Release notes
+
+#### 1.1.0
+
+- Soporte para Prestashop 1.6
+- Eliminado el paso de confirmación intermedio antes de ir a la pasarela
+
+#### 1.0.2
+
+- Endpoint actualizado a la nueva versión de pagantis
+- Eliminada la IP de la firma
 
 #### 1.0.1
 

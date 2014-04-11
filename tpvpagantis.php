@@ -267,7 +267,7 @@ class TpvPagantis extends PaymentModule
     
     
     $currency        = Tools::getValue('currency', $this->currency);
-    $order_id        = $cart->id;
+    $order_id        = rand (0, 9) . rand (0, 9) . rand (0, 9) . rand (0, 9) . rand (0, 9) . $cart->id;
     
     // URL fix for v1.6
     // $url_OK  = 'http://'.$_SERVER['HTTP_HOST'].__PS_BASE_URI__.'order-confirmation.php?key='.$customer->secure_key.'&id_cart='.$cart->id.'&id_module='.(int)($this->id).'&id_order='.(int)($cart->id);
@@ -305,14 +305,35 @@ class TpvPagantis extends PaymentModule
     
     global $smarty;
     
-    $currency = new Currency(intval($params['cart']->id_currency));
-    $total = floatval($params['cart']->getOrderTotal(true, 3));
+    //$cart = $this->context->cart;
+    $cart = $params['cart'];
 
+    if (!$this->checkCurrency($cart))
+      Tools::redirect('index.php?controller=order');
+      $tpvpagantis = new TpvPagantis;
+      $payment = $tpvpagantis->execPayment($cart);
+      
     $this->smarty->assign(array(
-      'total' => Tools::displayPrice($total, $currency, false, NULL),
-      'this_path' => $this->_path,
-      'this_path_ssl' => Tools::getShopDomainSsl(true, true).__PS_BASE_URI__.'modules/'.$this->name.'/' 
+
+      'nbProducts'        => $cart->nbProducts(),
+      'cust_currency'     => $cart->id_currency,
+      'currencies'        => $this->getCurrency((int)$cart->id_currency),
+      'pagantis_endpoint' => $payment['pagantis_endpoint'],
+      'account_id'        => $payment['account_id'],
+      'currency'          => $payment['currency'],
+      'ok_url'            => $payment['ok_url'],
+      'nok_url'           => $payment['nok_url'],
+      'order_id'          => $payment['order_id'],
+      'amount'            => $payment['amount'],
+      'description'       => $payment['description'],
+      'signature'         => $payment['signature'],
+      'customer'          => $payment['customer'],
+      'total'             => $cart->getOrderTotal(true, Cart::BOTH),
+      'this_path'         => $this->getPathUri(),
+      'this_path_ssl'     => Tools::getShopDomainSsl(true, true).__PS_BASE_URI__.'modules/'.$this->module->name.'/'
+
     ));
+    
     return $this->display(__FILE__, 'payment.tpl');
   }
 
