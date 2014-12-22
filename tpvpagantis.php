@@ -330,7 +330,7 @@ class TpvPagantis extends PaymentModule
       'customer'          => $payment['customer'],
       'total'             => $cart->getOrderTotal(true, Cart::BOTH),
       'this_path'         => $this->getPathUri(),
-      'this_path_ssl'     => Tools::getShopDomainSsl(true, true).__PS_BASE_URI__.'modules/'.$this->module->name.'/'
+      'this_path_ssl'     => Tools::getShopDomainSsl(true, true).__PS_BASE_URI__.'modules/'.$this->name.'/'
 
     ));
     
